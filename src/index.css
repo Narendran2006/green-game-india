@@ -2,41 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* EcoLearn Gamified Environmental Education Platform Design System
+   Vibrant, nature-inspired colors and gradients for engaging learning
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Nature-inspired background palette */
+    --background: 120 15% 97%;
+    --foreground: 140 15% 15%;
 
+    /* Card system with subtle earth tones */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 140 15% 15%;
 
+    /* Popover system */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 140 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Forest green for main actions */
+    --primary: 140 70% 35%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 140 60% 45%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary: Earthy brown for secondary elements */
+    --secondary: 25 35% 88%;
+    --secondary-foreground: 140 15% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted: Soft sage for subtle elements */
+    --muted: 120 20% 92%;
+    --muted-foreground: 140 25% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent: Sky blue for highlights */
+    --accent: 200 70% 55%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Success: Vibrant green for achievements */
+    --success: 120 80% 40%;
+    --success-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Warning: Warm orange for cautions */
+    --warning: 35 90% 55%;
+    --warning-foreground: 140 15% 15%;
 
-    --radius: 0.5rem;
+    /* Destructive: Red for errors */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders and inputs */
+    --border: 120 25% 85%;
+    --input: 120 25% 85%;
+    --ring: 140 70% 35%;
+
+    /* Eco-specific colors */
+    --eco-bronze: 25 60% 50%;
+    --eco-silver: 210 15% 70%;
+    --eco-gold: 45 90% 55%;
+    --eco-champion: 280 70% 60%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(140 70% 35%), hsl(120 80% 40%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(120 15% 97%));
+    --gradient-success: linear-gradient(135deg, hsl(120 80% 40%), hsl(140 70% 35%));
+    --gradient-badge: linear-gradient(135deg, hsl(45 90% 55%), hsl(35 90% 55%));
+
+    /* Shadows */
+    --shadow-card: 0 4px 12px -2px hsl(140 30% 20% / 0.1);
+    --shadow-button: 0 2px 8px -1px hsl(140 70% 35% / 0.3);
+    --shadow-success: 0 0 20px hsl(120 80% 40% / 0.4);
+
+    /* Border radius */
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
