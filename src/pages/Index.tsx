@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { StudentDashboard } from "@/components/StudentDashboard";
 import { RecycleSortingGame } from "@/components/RecycleSortingGame";
 import { EcoQuizBattle } from "@/components/EcoQuizBattle";
+import { LearningModule } from "@/components/LearningModule";
 import { 
   Leaf, 
   Recycle, 
@@ -18,7 +19,7 @@ import {
   Target
 } from "lucide-react";
 
-type CurrentView = 'home' | 'dashboard' | 'recycling-game' | 'quiz-battle';
+type CurrentView = 'home' | 'dashboard' | 'learning' | 'recycling-game' | 'quiz-battle';
 
 const Index = () => {
   const [currentView, setCurrentView] = useState<CurrentView>('home');
@@ -27,6 +28,8 @@ const Index = () => {
     switch (currentView) {
       case 'dashboard':
         return <StudentDashboard />;
+      case 'learning':
+        return <LearningModule onTestLevel={() => setCurrentView('recycling-game')} />;
       case 'recycling-game':
         return <RecycleSortingGame />;
       case 'quiz-battle':
@@ -57,7 +60,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up">
             <Button 
               size="lg" 
-              onClick={() => setCurrentView('dashboard')}
+              onClick={() => setCurrentView('learning')}
               className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-button text-lg px-8 py-3"
             >
               <Zap className="h-5 w-5 mr-2" />
@@ -135,22 +138,22 @@ const Index = () => {
 
             <Card 
               className="bg-gradient-card shadow-card hover:shadow-button transition-all cursor-pointer animate-bounce-in"
-              onClick={() => setCurrentView('dashboard')}
+              onClick={() => setCurrentView('learning')}
               style={{ animationDelay: '0.2s' }}
             >
               <CardHeader className="text-center">
                 <div className="mx-auto w-16 h-16 bg-success rounded-full flex items-center justify-center mb-4">
                   <Trophy className="h-8 w-8 text-success-foreground" />
                 </div>
-                <CardTitle>Student Dashboard</CardTitle>
+                <CardTitle>Learning Dashboard</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground mb-4">
-                  Track your eco-points, badges, streaks, and environmental impact!
+                  Interactive learning modules with environmental topics and progress tracking!
                 </p>
                 <Badge className="bg-eco-gold text-foreground">
                   <Award className="h-3 w-3 mr-1" />
-                  Progress
+                  Learn & Progress
                 </Badge>
               </CardContent>
             </Card>
@@ -239,7 +242,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg"
-              onClick={() => setCurrentView('dashboard')}
+              onClick={() => setCurrentView('learning')}
               className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-button text-lg px-8 py-3"
             >
               <Trophy className="h-5 w-5 mr-2" />
