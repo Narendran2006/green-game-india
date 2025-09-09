@@ -55,47 +55,10 @@ const Index = () => {
   };
 
   const HomePage = () => (
-    <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-hero text-primary-foreground">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="relative max-w-6xl mx-auto px-4 py-20 text-center">
-          <div className="animate-bounce-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              EcoLearn
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-90">
-              Gamified Environmental Education for Indian Students
-            </p>
-            <p className="text-lg mb-12 max-w-2xl mx-auto opacity-80">
-              Learn, Play, and Save the Planet! Earn eco-points, badges, and compete with friends while building sustainable habits.
-            </p>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up">
-            <Button 
-              size="lg" 
-              onClick={() => setCurrentView('learning')}
-              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-button text-lg px-8 py-3"
-            >
-              <Zap className="h-5 w-5 mr-2" />
-              Start Learning
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              onClick={() => setCurrentView('recycling-game')}
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 py-3"
-            >
-              <Recycle className="h-5 w-5 mr-2" />
-              Play Games
-            </Button>
-          </div>
-        </div>
-      </section>
+    <div className="min-h-screen bg-background p-4 bg-forest-scene bg-cover bg-center bg-no-repeat">
+      <div className="min-h-screen bg-black/20 backdrop-blur-sm">
 
-      {/* Features Section */}
-      <section className="py-20 px-4">
+          <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -223,9 +186,9 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {[
               { icon: TreePine, label: "Climate Change", color: "text-success" },
+              { icon: Leaf, label: "Biodiversity", color: "text-green-600" },
               { icon: Recycle, label: "Recycling", color: "text-accent" },
               { icon: Droplets, label: "Water Conservation", color: "text-blue-500" },
-              { icon: Leaf, label: "Biodiversity", color: "text-green-600" },
               { icon: Zap, label: "Renewable Energy", color: "text-yellow-500" },
               { icon: Users, label: "Sustainability", color: "text-purple-500" },
             ].map((topic, index) => (
@@ -245,35 +208,12 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-hero text-primary-foreground">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Become an Eco-Champion?
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Join thousands of students already making a difference for our planet
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              onClick={() => setCurrentView('learning')}
-              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-button text-lg px-8 py-3"
-            >
-              <Trophy className="h-5 w-5 mr-2" />
-              Start Your Journey
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              onClick={() => setCurrentView('quiz-battle')}
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 py-3"
-            >
-              <Brain className="h-5 w-5 mr-2" />
-              Test Your Knowledge
-            </Button>
-          </div>
-        </div>
-      </section>
+        
+      </div>
+      
+      {/* Features Section */}
+    
+      
     </div>
   );
 
