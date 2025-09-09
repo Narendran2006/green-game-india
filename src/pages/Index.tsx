@@ -6,6 +6,11 @@ import { StudentDashboard } from "@/components/StudentDashboard";
 import { RecycleSortingGame } from "@/components/RecycleSortingGame";
 import { EcoQuizBattle } from "@/components/EcoQuizBattle";
 import { LearningModule } from "@/components/LearningModule";
+import { GamesGrid } from "@/components/GamesGrid";
+import { WordSearchGame } from "@/components/WordSearchGame";
+import { CloudGameEnvironment } from "@/components/CloudGameEnvironment";
+import { TreePlantingGame } from "@/components/TreePlantingGame";
+import { WaterConservationGame } from "@/components/WaterConservationGame";
 import { 
   Leaf, 
   Recycle, 
@@ -19,7 +24,7 @@ import {
   Target
 } from "lucide-react";
 
-type CurrentView = 'home' | 'dashboard' | 'learning' | 'recycling-game' | 'quiz-battle';
+type CurrentView = 'home' | 'dashboard' | 'learning' | 'games' | 'recycling-game' | 'quiz-battle' | 'word-search' | 'weather-game' | 'tree-planting' | 'water-conservation';
 
 const Index = () => {
   const [currentView, setCurrentView] = useState<CurrentView>('home');
@@ -29,11 +34,21 @@ const Index = () => {
       case 'dashboard':
         return <StudentDashboard />;
       case 'learning':
-        return <LearningModule onTestLevel={() => setCurrentView('recycling-game')} />;
+        return <LearningModule onTestLevel={() => setCurrentView('games')} />;
+      case 'games':
+        return <GamesGrid onGameSelect={(gameId) => setCurrentView(gameId as CurrentView)} />;
       case 'recycling-game':
         return <RecycleSortingGame />;
       case 'quiz-battle':
         return <EcoQuizBattle />;
+      case 'word-search':
+        return <WordSearchGame />;
+      case 'weather-game':
+        return <CloudGameEnvironment />;
+      case 'tree-planting':
+        return <TreePlantingGame />;
+      case 'water-conservation':
+        return <WaterConservationGame />;
       default:
         return <HomePage />;
     }
@@ -91,61 +106,16 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Game Cards */}
-            <Card 
-              className="bg-gradient-card shadow-card hover:shadow-button transition-all cursor-pointer animate-bounce-in"
-              onClick={() => setCurrentView('recycling-game')}
-            >
-              <CardHeader className="text-center">
-                <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4">
-                  <Recycle className="h-8 w-8 text-primary-foreground" />
-                </div>
-                <CardTitle>Recycle Sorting Game</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground mb-4">
-                  Drag and drop waste items into correct bins. Learn proper recycling habits!
-                </p>
-                <Badge className="bg-success text-success-foreground">
-                  <Target className="h-3 w-3 mr-1" />
-                  Interactive
-                </Badge>
-              </CardContent>
-            </Card>
-
-            <Card 
-              className="bg-gradient-card shadow-card hover:shadow-button transition-all cursor-pointer animate-bounce-in"
-              onClick={() => setCurrentView('quiz-battle')}
-              style={{ animationDelay: '0.1s' }}
-            >
-              <CardHeader className="text-center">
-                <div className="mx-auto w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-4">
-                  <Brain className="h-8 w-8 text-accent-foreground" />
-                </div>
-                <CardTitle>Eco Quiz Battle</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground mb-4">
-                  Test your environmental knowledge in timed quiz battles with friends!
-                </p>
-                <Badge className="bg-accent text-accent-foreground">
-                  <Zap className="h-3 w-3 mr-1" />
-                  Competitive
-                </Badge>
-              </CardContent>
-            </Card>
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card 
               className="bg-gradient-card shadow-card hover:shadow-button transition-all cursor-pointer animate-bounce-in"
               onClick={() => setCurrentView('learning')}
-              style={{ animationDelay: '0.2s' }}
             >
               <CardHeader className="text-center">
-                <div className="mx-auto w-16 h-16 bg-success rounded-full flex items-center justify-center mb-4">
-                  <Trophy className="h-8 w-8 text-success-foreground" />
+                <div className="mx-auto w-20 h-20 bg-success rounded-full flex items-center justify-center mb-4">
+                  <Zap className="h-10 w-10 text-success-foreground" />
                 </div>
-                <CardTitle>Learning Dashboard</CardTitle>
+                <CardTitle className="text-xl">Start Learning</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground mb-4">
@@ -154,6 +124,50 @@ const Index = () => {
                 <Badge className="bg-eco-gold text-foreground">
                   <Award className="h-3 w-3 mr-1" />
                   Learn & Progress
+                </Badge>
+              </CardContent>
+            </Card>
+
+            <Card 
+              className="bg-gradient-card shadow-card hover:shadow-button transition-all cursor-pointer animate-bounce-in"
+              onClick={() => setCurrentView('games')}
+              style={{ animationDelay: '0.1s' }}
+            >
+              <CardHeader className="text-center">
+                <div className="mx-auto w-20 h-20 bg-primary rounded-full flex items-center justify-center mb-4">
+                  <Recycle className="h-10 w-10 text-primary-foreground" />
+                </div>
+                <CardTitle className="text-xl">Play Games</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-muted-foreground mb-4">
+                  Choose from 6 exciting environmental games and challenges!
+                </p>
+                <Badge className="bg-accent text-accent-foreground">
+                  <Target className="h-3 w-3 mr-1" />
+                  6 Games Available
+                </Badge>
+              </CardContent>
+            </Card>
+
+            <Card 
+              className="bg-gradient-card shadow-card hover:shadow-button transition-all cursor-pointer animate-bounce-in"
+              onClick={() => setCurrentView('dashboard')}
+              style={{ animationDelay: '0.2s' }}
+            >
+              <CardHeader className="text-center">
+                <div className="mx-auto w-20 h-20 bg-accent rounded-full flex items-center justify-center mb-4">
+                  <Trophy className="h-10 w-10 text-accent-foreground" />
+                </div>
+                <CardTitle className="text-xl">Student Dashboard</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-muted-foreground mb-4">
+                  View your progress, badges, achievements and recent activities!
+                </p>
+                <Badge className="bg-success text-success-foreground">
+                  <Users className="h-3 w-3 mr-1" />
+                  Your Progress
                 </Badge>
               </CardContent>
             </Card>
