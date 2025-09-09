@@ -78,6 +78,8 @@ export default {
         "gradient-card": "var(--gradient-card)",
         "gradient-success": "var(--gradient-success)",
         "gradient-badge": "var(--gradient-badge)",
+        "environmental-bg": "url('/src/assets/environmental-bg.jpg')",
+        "forest-scene": "url('/src/assets/forest-scene.jpg')",
       },
       boxShadow: {
         "card": "var(--shadow-card)",
@@ -159,6 +161,16 @@ export default {
             transform: "translateX(2px)",
           },
         },
+        "fade-in": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(10px)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)"
+          }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -168,6 +180,7 @@ export default {
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "confetti": "confetti 3s ease-out infinite",
         "shake": "shake 0.5s ease-in-out",
+        "fade-in": "fade-in 0.3s ease-out",
       },
     },
   },
